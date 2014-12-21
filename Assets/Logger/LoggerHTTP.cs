@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 internal class LoggerHTTP : MonoBehaviour, ILoggerDevice
 {
@@ -24,12 +25,18 @@ internal class LoggerHTTP : MonoBehaviour, ILoggerDevice
 
     IEnumerator SendToServer(string condition, string stackTrace)
     {
-        WWWForm Form = new WWWForm();
+        var rStringBuild = new StringBuilder();
+        rStringBuild.AppendFormat("Device         : {0}\r\n", SystemInfo.deviceName);
+        rStringBuild.AppendFormat("Device Module  : {0}\r\n", SystemInfo.deviceModel);
+        rStringBuild.AppendFormat("System         : {0}\r\n", SystemInfo.operatingSystem);
+        rStringBuild.AppendFormat("CPU Count      : {0}\r\n", SystemInfo.processorCount);
+        rStringBuild.AppendFormat("CPU            : {0}\r\n", SystemInfo.processorType);
+        rStringBuild.AppendLine("================================");
+        rStringBuild.AppendFormat("Condition      : \r\n{0}\r\n", condition);
+        rStringBuild.AppendLine("================================");
+        rStringBuild.AppendFormat("StackTrace     : \r\n{0}\r\n", stackTrace);
 
-        Form.AddField("Condition", condition);
-        Form.AddField("StackTrace", stackTrace);
-
-        WWW www = new WWW(ServerHost, Form);
+        WWW www = new WWW(ServerHost, Encoding.ASCII.GetBytes(rStringBuild.ToString()));
         yield return www;
 
         if (string.IsNullOrEmpty(www.error))

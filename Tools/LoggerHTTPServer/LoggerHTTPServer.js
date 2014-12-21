@@ -13,22 +13,12 @@ function OnLogger(request, response)
 		postData += data;
 	});
 	request.addListener('end', function(){
-		var postDataText = querystring.parse(postData);
-		//var jsonObjs;
-		//try{
-		//	jsonObjs = querystring.parse(postData);
-		//	console.log(json['Condition']);
-		//	console.log(json['StackTrace']);
-		//}
-		//catch(err) {
-		//	console.log(err);
-		//	console.log(postDataText);
-		//}
-		
 		db.serialize(function(){
 			db.run("CREATE TABLE IF NOT EXISTS Logger (ID integer primary key autoincrement, LOGGER_DATETIME DATETIME, LOGGER_TEXT TEXT)");
-			db.prepare("INSERT INTO Logger(LOGGER_DATETIME, LOGGER_TEXT) VALUES(datetime(\'now\',\'localtime\'), \"" + postDataText + "\")");
+			db.run("INSERT INTO Logger(LOGGER_DATETIME, LOGGER_TEXT) VALUES(datetime(\'now\',\'localtime\'), \"" + postData + "\")");
+			//db.close();
 		});
+		
 	});
 }
 
@@ -49,3 +39,7 @@ http.createServer(function(request, response){
 		response.end('404');
 	}
 }).listen(8000);
+
+process.exit = function() {
+	db.close();
+}

@@ -5,6 +5,7 @@ Assets/UnityVS.meta
 ## Unity
 obj
 Library
+Temp
 *.sln
 *.csproj
 *.userprefs
