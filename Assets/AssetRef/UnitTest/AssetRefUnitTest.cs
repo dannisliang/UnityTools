@@ -19,4 +19,14 @@ public class AssetRefUnitTest : AssetRefBehaviour
 	void Update () {
 	
 	}
+
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(0, 0, 220, 24), "Load GameObjectObject"))
+            Debug.Log(GameObjectObject.AssetObject);
+        if (GUI.Button(new Rect(0, 24, 220, 24), "Load TransformObject"))
+            Debug.Log(TransformObject.AssetObject);
+        if (GUI.Button(new Rect(0, 48, 220, 24), "Load RendererObject"))
+            Debug.Log(RendererObject.AssetObject);
+    }
 }
