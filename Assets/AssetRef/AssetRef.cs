@@ -39,13 +39,12 @@ public abstract class AssetRef
     public abstract UnityEngine.Object  AssetObject { get; set;}
     
 
-    public virtual void Serialize(BinaryWriter rWriter)     {}
-    public virtual void Deserialize(BinaryReader rReader)   {}
+	public abstract void Serialize (BinaryWriter rWriter);
+	public abstract void Deserialize (BinaryReader rReader);
 
     protected Type  mAssetType;
 }
 
-[System.Serializable]
 public class TAssetRef<T> : AssetRef
     where T : UnityEngine.Object
 {
@@ -116,14 +115,10 @@ public class TAssetRef<T> : AssetRef
     }
     public override void Serialize(BinaryWriter rWriter)
     {
-        base.Serialize(rWriter);
-
         rWriter.Write(mAssetPath);
     }
     public override void Deserialize(BinaryReader rReader)
     {
-        base.Deserialize(rReader);
-
         mAssetPath = rReader.ReadString();
     }
     #endregion

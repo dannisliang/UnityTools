@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 4608937092f17c64b82b906faa4960c7
-timeCreated: 1429703834
-licenseType: Pro
+timeCreated: 1429752428
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - OrigGo0: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
+  - OrigGo1: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -6,8 +6,8 @@ public class AssetRefUnitTest : AssetRefBehaviour
     public GameObject           OrigGo0;
     public GameObject           OrigGo1;
 
+	public TAssetRef<Transform> TransformObject;
     public TAssetRef<GameObject> GameObjectObject;
-    public TAssetRef<Transform> TransformObject;
     public TAssetRef<Renderer> RendererObject;
 
 	// Use this for initialization
