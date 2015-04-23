@@ -80,3 +80,6 @@ public class AssetRefResourcesDrawer<T> : PropertyDrawer
 }
 [CustomPropertyDrawer(typeof(AssetRefTexture2D))]
 public class AssetRefTexture2DDrawer : AssetRefResourcesDrawer<Texture2D> {}
+
+[CustomPropertyDrawer(typeof(AssetRefGameObject))]
+public class AssetRefGameObjectDrawer : AssetRefResourcesDrawer<GameObject> {}
