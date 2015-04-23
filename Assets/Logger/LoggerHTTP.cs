@@ -5,8 +5,8 @@ using System.Text;
 
 internal class LoggerHTTP : MonoBehaviour, ILoggerDevice
 {
-    public string           ServerHost;
-    public LoggerLogType    LogType;
+    public string           ServerHost  = string.Empty;
+    public LoggerLogType    LogType     = LoggerLogType.Error;
 
     void Start()
     {

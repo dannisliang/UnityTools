@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490318}
-  - 114: {fileID: 11427734}
+  - 114: {fileID: 11407890}
   m_Layer: 0
   m_Name: AssetRefUnitTest
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11427734
+--- !u!114 &11407890
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -39,9 +39,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4608937092f17c64b82b906faa4960c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAssetRefData: 0f5472616e73666f726d4f626a6563740c0000000b4c696768745072656661621047616d654f626a6563744f626a6563740c0000000b4c696768745072656661620e52656e64657265724f626a6563740100000000
   OrigGo0: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
   OrigGo1: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
+  textureObject:
+    AssetPath: img/res/XImageXX
+    AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
+  tex:
+    texArray:
+    - AssetPath: img/res/XImageXX
+      AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
+    - AssetPath: img/res/XImageXX
+      AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
+  textureArrays:
+  - AssetPath: 
+    AssetGUID: 
+  - AssetPath: 
+    AssetGUID: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

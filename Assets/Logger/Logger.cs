@@ -30,11 +30,19 @@ public class Logger : MonoBehaviour
     {
         GInstance = this;
 
+#if UNITY_5_0
+        Application.logMessageReceived += this.OnLogNotify;
+#else
         Application.RegisterLogCallback(this.OnLogNotify);
+#endif
     }
     void OnDestroy()
     {
+#if UNITY_5_0
+        Application.logMessageReceived -= this.OnLogNotify;
+#else
         Application.RegisterLogCallback(null);
+#endif
     }
     void OnLogNotify(string condition, string stackTrace, LogType type)
     {

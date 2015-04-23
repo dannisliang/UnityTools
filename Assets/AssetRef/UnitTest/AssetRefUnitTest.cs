@@ -1,32 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class AssetRefUnitTest : AssetRefBehaviour
+[System.Serializable]
+public class XXWrap
+{
+    public AssetRefTexture2D[] texArray;
+}
+
+public class AssetRefUnitTest : MonoBehaviour
 {
     public GameObject           OrigGo0;
     public GameObject           OrigGo1;
 
-	public TAssetRef<Transform> TransformObject;
-    public TAssetRef<GameObject> GameObjectObject;
-    public TAssetRef<Renderer> RendererObject;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public AssetRefTexture2D        textureObject;
+    public XXWrap                   tex;
+    public List<AssetRefTexture2D>  textureArrays;
 
     void OnGUI()
     {
-        if (GUI.Button(new Rect(0, 0, 220, 24), "Load GameObjectObject"))
-            Debug.Log(GameObjectObject.AssetObject);
-        if (GUI.Button(new Rect(0, 24, 220, 24), "Load TransformObject"))
-            Debug.Log(TransformObject.AssetObject);
-        if (GUI.Button(new Rect(0, 48, 220, 24), "Load RendererObject"))
-            Debug.Log(RendererObject.AssetObject);
+        if (GUI.Button(new Rect(0, 0, 220, 24), "Load textureObject"))
+            Debug.Log(textureObject.AssetObject);
+        if (GUI.Button(new Rect(0, 24, 220, 24), "Unload textureObject"))
+            textureObject.UnloadAsset();
+        //if (GUI.Button(new Rect(0, 48, 220, 24), "Load RendererObject"))
+        //    Debug.Log(RendererObject.AssetObject);
     }
 }

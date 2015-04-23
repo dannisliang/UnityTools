@@ -16,9 +16,7 @@ function OnLogger(request, response)
 		db.serialize(function(){
 			db.run("CREATE TABLE IF NOT EXISTS Logger (ID integer primary key autoincrement, LOGGER_DATETIME DATETIME, LOGGER_TEXT TEXT)");
 			db.run("INSERT INTO Logger(LOGGER_DATETIME, LOGGER_TEXT) VALUES(datetime(\'now\',\'localtime\'), \"" + postData + "\")");
-			//db.close();
 		});
-		
 	});
 }
 
