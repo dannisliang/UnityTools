@@ -13,6 +13,8 @@ public class AssetRefResourcesDrawer<T> : PropertyDrawer
     float LoadBtnWidth = 18;
     public override void OnGUI(Rect pos, SerializedProperty prop, GUIContent label)
     {
+		EditorGUI.BeginProperty (pos, label, prop);
+
         var rAssetRef = GetAssetRef(prop.serializedObject.targetObject, prop.propertyPath);
         if (null != rAssetRef)
         {
@@ -22,6 +24,11 @@ public class AssetRefResourcesDrawer<T> : PropertyDrawer
                 rOldAssetObject = rAssetRef.AssetObject;
             else if (rAssetRef.State == AssetRefState.Unload)
                 rObjectFieldRect.width = rObjectFieldRect.width - LoadBtnWidth;
+
+			var rAssetPath = prop.FindPropertyRelative("AssetPath");
+			var rAssetGUID = prop.FindPropertyRelative("AssetGUID");
+
+			EditorGUI.BeginChangeCheck ();
             var rNewAssetObject = EditorGUI.ObjectField(rObjectFieldRect, label, rOldAssetObject, typeof(T)
 #if UNITY_5_0
                 , false
@@ -37,9 +44,16 @@ public class AssetRefResourcesDrawer<T> : PropertyDrawer
                 if (GUI.Button(rButtonPos, new GUIContent("L", "Load Resource")))
                     rNewAssetObject = rAssetRef.AssetObject;
             }
-            if (rNewAssetObject != rOldAssetObject)
+			if (EditorGUI.EndChangeCheck())
+			{
                 rAssetRef.AssetObject = rNewAssetObject as T;
+
+				rAssetPath.stringValue = rAssetRef.AssetPath;
+				rAssetGUID.stringValue = rAssetRef.AssetGUID;
+			}
         }
+
+		EditorGUI.EndProperty ();
     }
 
     public AssetRefResources<T> GetAssetRef(UnityEngine.Object targetObject, string propertyPath)
