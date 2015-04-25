@@ -20,9 +20,10 @@ public class AssetRefUnitTest : MonoBehaviour
     void OnGUI()
     {
         if (GUI.Button(new Rect(0, 0, 220, 24), "Load textureObject"))
-            Debug.Log(textureObject.AssetObject);
-        if (GUI.Button(new Rect(0, 24, 220, 24), "Unload textureObject"))
-            textureObject.UnloadAsset();
+			this.StartCoroutine(this.AsyncLoadAssetRef(0, this.StartCoroutine));
+
+        if (GUI.Button (new Rect (0, 24, 220, 24), "Unload textureObject"))
+			this.UnloadAssetRef(0);
         //if (GUI.Button(new Rect(0, 48, 220, 24), "Load RendererObject"))
         //    Debug.Log(RendererObject.AssetObject);
     }

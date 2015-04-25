@@ -99,7 +99,6 @@ GameObject:
   - 92: {fileID: 248718765}
   - 124: {fileID: 248718764}
   - 81: {fileID: 248718763}
-  - 114: {fileID: 248718768}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -172,25 +171,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &248718768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 248718762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4608937092f17c64b82b906faa4960c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OrigGo0: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
-  OrigGo1: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
-  textureObject:
-    AssetPath: img/res/XImageXX
-    AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
-  tex:
-    texArray: []
-  textureArrays: []
 --- !u!1001 &1369391221
 Prefab:
   m_ObjectHideFlags: 0
@@ -229,6 +209,14 @@ Prefab:
     - target: {fileID: 490318, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407890, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
+      propertyPath: textureObject.AssetPath
+      value: img/res/XImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407890, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
+      propertyPath: textureObject.AssetGUID
+      value: d47551a33e8a0481cbcb9694ddf71d0c
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}

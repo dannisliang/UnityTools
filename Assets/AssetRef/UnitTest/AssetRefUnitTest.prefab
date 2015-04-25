@@ -51,10 +51,10 @@ MonoBehaviour:
     - AssetPath: img/res/XImageXX
       AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
   textureArrays:
-  - AssetPath: 
-    AssetGUID: 
-  - AssetPath: 
-    AssetGUID: 
+  - AssetPath: img/res/XImageXX
+    AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
+  - AssetPath: img/res/XImageXX
+    AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
