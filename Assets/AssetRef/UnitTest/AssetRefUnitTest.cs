@@ -20,7 +20,7 @@ public class AssetRefUnitTest : MonoBehaviour
     void OnGUI()
     {
         if (GUI.Button(new Rect(0, 0, 220, 24), "Load textureObject"))
-			this.StartCoroutine(this.AsyncLoadAssetRef(0, this.StartCoroutine));
+			this.StartCoroutine(this.AsyncLoadAssetRef(-1, this.StartCoroutine));
 
         if (GUI.Button (new Rect (0, 24, 220, 24), "Unload textureObject"))
 			this.UnloadAssetRef(0);

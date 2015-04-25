@@ -58,6 +58,9 @@ public class AssetRefResourcesDrawer<T> : PropertyDrawer
 
     public AssetRefResources<T> GetAssetRef(UnityEngine.Object targetObject, string propertyPath)
     {
+		if (null == targetObject)
+			return default(AssetRefResources<T>);
+
         var             rType = targetObject.GetType();
         System.Object   rObject = targetObject;
         var             rPropPath = propertyPath.Split('.');
@@ -67,10 +70,12 @@ public class AssetRefResourcesDrawer<T> : PropertyDrawer
             if (rFieldName == "Array" && rPropPath.Length > (nIndex + 1) && rPropPath[nIndex + 1].Contains("data["))
             {
                 int nArrayIndex = ParseDataIndex(rPropPath[nIndex + 1]);
-                if (nArrayIndex == -1)
+				if (nArrayIndex == -1 || nArrayIndex >= ((System.Collections.IList)rObject).Count)
                     return default(AssetRefResources<T>);
 
                 rObject = ((System.Collections.IList)rObject)[nArrayIndex];
+				if (null != rObject)
+					rType = rObject.GetType();
 
                 nIndex++;
             }

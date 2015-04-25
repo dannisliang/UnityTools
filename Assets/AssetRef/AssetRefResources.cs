@@ -53,6 +53,7 @@ public class AssetRefResources<T>
             if (null == value)
             {
                 AssetPath = string.Empty;
+				AssetGUID = string.Empty;
                 mAssetObject = null;
                 return;
             }
@@ -116,7 +117,7 @@ public class AssetRefResources<T>
 #if UNITY_EDITOR
 		ResourcePathRepair();
 #endif
-		var rAsyncLoadRequest = Resources.LoadAsync<T> (AssetPath);
+		var rAsyncLoadRequest = Resources.LoadAsync<T>(AssetPath);
 		yield return rAsyncLoadRequest;
 
 		mAssetObject = rAsyncLoadRequest.asset as T;
@@ -161,18 +162,27 @@ public static class AssetRefExpand
 			var rMethod = rType.GetMethod("AsyncLoadAsset");
 			if (null != rMethod)
 				yield return rStartCoroutine((IEnumerator)rMethod.Invoke(rObject, new object[0]));
+			yield break;
 		}
 		foreach(var rField in rType.GetFields(BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic))
 		{
 			if (!rField.IsPublic && !rField.IsDefined(typeof(SerializeField), false))
 				continue;
-			
-			if (-1 != nInvokeID && rField.IsDefined(typeof(AssetRefInvokeAttribute), false) && 
-			    (rField.GetCustomAttributes(typeof(AssetRefInvokeAttribute), false)[0] as AssetRefInvokeAttribute).InvokeID != nInvokeID)
+
+			if (-1 != nInvokeID)
 			{
-				continue;
+				if (!rField.IsDefined(typeof(AssetRefInvokeAttribute), false))
+				{
+					if (rField.FieldType.BaseType.Name == AssetRefResourceTypeNmae ||
+						rField.FieldType.GetInterface("System.Collections.IList") != null)
+						continue;
+				}
+				else if ((rField.GetCustomAttributes(typeof(AssetRefInvokeAttribute), false)[0] as AssetRefInvokeAttribute).InvokeID != nInvokeID)
+				{
+					continue;
+				}
 			}
-			
+
 			if (rField.FieldType.BaseType.Name == AssetRefResourceTypeNmae)
 			{
 				var rMethod = rField.FieldType.GetMethod("AsyncLoadAsset");
@@ -223,11 +233,19 @@ public static class AssetRefExpand
 		{
 			if (!rField.IsPublic && !rField.IsDefined(typeof(SerializeField), false))
 				continue;
-			
-			if (-1 != nInvokeID && rField.IsDefined(typeof(AssetRefInvokeAttribute), false) && 
-			    (rField.GetCustomAttributes(typeof(AssetRefInvokeAttribute), false)[0] as AssetRefInvokeAttribute).InvokeID != nInvokeID)
+
+			if (-1 != nInvokeID)
 			{
-				continue;
+				if (!rField.IsDefined(typeof(AssetRefInvokeAttribute), false))
+				{
+					if (rField.FieldType.BaseType.Name == AssetRefResourceTypeNmae ||
+						rField.FieldType.GetInterface("System.Collections.IList") != null)
+						continue;
+				}
+				else if ((rField.GetCustomAttributes(typeof(AssetRefInvokeAttribute), false)[0] as AssetRefInvokeAttribute).InvokeID != nInvokeID)
+				{
+					continue;
+				}
 			}
 			
 			if (rField.FieldType.BaseType.Name == AssetRefResourceTypeNmae)

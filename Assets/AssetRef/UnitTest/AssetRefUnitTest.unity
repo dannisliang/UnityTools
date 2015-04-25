@@ -218,6 +218,18 @@ Prefab:
       propertyPath: textureObject.AssetGUID
       value: d47551a33e8a0481cbcb9694ddf71d0c
       objectReference: {fileID: 0}
+    - target: {fileID: 11407890, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
+      propertyPath: textureArrays.Array.data[1].AssetPath
+      value: img/res/XImageXXRename
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407890, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
+      propertyPath: tex.texArray.Array.data[0].AssetPath
+      value: img/res/XImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407890, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
+      propertyPath: tex.texArray.Array.data[0].AssetGUID
+      value: d47551a33e8a0481cbcb9694ddf71d0c
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
   m_IsPrefabParent: 0
