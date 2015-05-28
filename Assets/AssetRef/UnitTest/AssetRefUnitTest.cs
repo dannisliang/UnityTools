@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class XXWrap
 {
-    public AssetRefTexture2D[] texArray;
+    public RefTexture2D[] texArray;
 }
 
 public class AssetRefUnitTest : MonoBehaviour
@@ -13,9 +13,9 @@ public class AssetRefUnitTest : MonoBehaviour
     public GameObject           OrigGo0;
     public GameObject           OrigGo1;
 
-    public AssetRefTexture2D        textureObject;
+    public RefTexture2D        textureObject;
     public XXWrap                   tex;
-    public List<AssetRefTexture2D>  textureArrays;
+    public List<RefTexture2D>  textureArrays;
 
     void OnGUI()
     {

@@ -164,6 +164,10 @@ public static class AssetRefExpand
 				yield return rStartCoroutine((IEnumerator)rMethod.Invoke(rObject, new object[0]));
 			yield break;
 		}
+
+		if (typeof(Component).IsAssignableFrom (rType) || typeof(GameObject) == rType)
+			yield break;
+
 		foreach(var rField in rType.GetFields(BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic))
 		{
 			if (!rField.IsPublic && !rField.IsDefined(typeof(SerializeField), false))
@@ -229,6 +233,10 @@ public static class AssetRefExpand
 				rMethod.Invoke(rObject, new object[0]);
 			return;
 		}
+
+		if (typeof(Component).IsAssignableFrom (rType) || typeof(GameObject) == rType)
+			return;
+
 		foreach(var rField in rType.GetFields(BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic))
 		{
 			if (!rField.IsPublic && !rField.IsDefined(typeof(SerializeField), false))
@@ -274,5 +282,8 @@ public static class AssetRefExpand
 	}
 }
 
-[Serializable] public class AssetRefTexture2D   : AssetRefResources<Texture2D>  {}
-[Serializable] public class AssetRefGameObject  : AssetRefResources<GameObject> {}
+[Serializable] public class RefTexture2D   : AssetRefResources<Texture2D>  {}
+[Serializable] public class RefGameObject  : AssetRefResources<GameObject> {}
+[Serializable] public class RefMaterial    : AssetRefResources<Material>   {}
+[Serializable] public class RefAudioClip   : AssetRefResources<AudioClip>  {}
+[Serializable] public class RefShader      : AssetRefResources<Shader>     {}

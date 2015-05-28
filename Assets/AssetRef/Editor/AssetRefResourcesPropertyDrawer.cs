@@ -97,8 +97,17 @@ public class AssetRefResourcesDrawer<T> : PropertyDrawer
         return int.Parse(rPropName.Substring(5, rPropName.Length - 6));
     }
 }
-[CustomPropertyDrawer(typeof(AssetRefTexture2D))]
+[CustomPropertyDrawer(typeof(RefTexture2D))]
 public class AssetRefTexture2DDrawer : AssetRefResourcesDrawer<Texture2D> {}
 
-[CustomPropertyDrawer(typeof(AssetRefGameObject))]
+[CustomPropertyDrawer(typeof(RefGameObject))]
 public class AssetRefGameObjectDrawer : AssetRefResourcesDrawer<GameObject> {}
+
+[CustomPropertyDrawer(typeof(RefMaterial))]
+public class AssetRefMaterialtDrawer : AssetRefResourcesDrawer<Material> {}
+
+[CustomPropertyDrawer(typeof(RefAudioClip))]
+public class AssetRefAudioClipDrawer : AssetRefResourcesDrawer<AudioClip> {}
+
+[CustomPropertyDrawer(typeof(RefShader))]
+public class AssetRefShaderDrawer : AssetRefResourcesDrawer<Shader> {}

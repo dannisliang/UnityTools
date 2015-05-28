@@ -1,60 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &183146
+--- !u!1 &174092
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 490318}
-  - 114: {fileID: 11407890}
+  - 4: {fileID: 401498}
+  - 114: {fileID: 11441510}
   m_Layer: 0
-  m_Name: AssetRefUnitTest
+  m_Name: GameObjectUnitTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &490318
+--- !u!4 &401498
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 183146}
+  m_GameObject: {fileID: 174092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11407890
+--- !u!114 &11441510
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 183146}
+  m_GameObject: {fileID: 174092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4608937092f17c64b82b906faa4960c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b1638a4e997744c38bf67cee235f4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OrigGo0: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
-  OrigGo1: {fileID: 138472, guid: 353f2a5a30338224ca7e8b51a6883ee2, type: 2}
-  textureObject:
-    AssetPath: img/res/XImageXX
-    AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
-  tex:
-    texArray:
-    - AssetPath: img/res/XImageXX
-      AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
-    - AssetPath: img/res/XImageXX
-      AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
-  textureArrays:
-  - AssetPath: img/res/XImageXX
-    AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
-  - AssetPath: img/res/XImageXX
-    AssetGUID: 257067fb7e51cf04295fbaf21ea0e587
+  go: {fileID: 183146, guid: 5b918a6acc7e94e449a0b60100bb347a, type: 2}
+  v1:
+    floatValue: 0
+    goValue:
+      AssetPath: AssetRefUnitTest
+      AssetGUID: 5b918a6acc7e94e449a0b60100bb347a
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -64,5 +54,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 183146}
+  m_RootGameObject: {fileID: 174092}
   m_IsPrefabParent: 1
